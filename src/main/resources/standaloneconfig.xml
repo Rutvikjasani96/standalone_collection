@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    Standalone list-->
+    <util:list list-class="java.util.LinkedList" id="friendsName">
+        <value>Rutvik</value>
+        <value>Dhruvin</value>
+        <value>Sanket</value>
+        <value>Mansi</value>
+        <value>Shivangi</value>
+        <value>Smit</value>
+    </util:list>
+
+<!--    Standalone Map-->
+    <util:map map-class="java.util.HashMap" id="fees">
+        <entry key="Java" value="10000"/>
+        <entry key="Python" value="5000"/>
+        <entry key="Spring" value="4000"/>
+        <entry key="Django" value="2000"/>
+    </util:map>
+
+<!--    Standalone Properties-->
+    <util:properties id="couple">
+        <prop key="Smit">Mansi</prop>
+        <prop key="Sanket">Dia</prop>
+        <prop key="Meet">Jalpa</prop>
+        <prop key="Pratik">Mitva</prop>
+        <prop key="Renish">Jalpa</prop>
+    </util:properties>
+
+
+    <!--    This is our bean-->
+    <bean class="com.standalone_collection.Person" name="person">
+        <property name="friends">
+            <ref bean="friendsName"/>
+        </property>
+        <property name="feesStructure" ref="fees"/>
+        <property name="properties" ref="couple"/>
+    </bean>
+
+</beans>
